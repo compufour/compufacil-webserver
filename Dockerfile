@@ -1,6 +1,5 @@
 FROM compufour/compufacil-php
 
-
 ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR /var/log/apache2
@@ -9,7 +8,10 @@ ENV APACHE_RUN_DIR /var/run/apache2
 ENV APACHE_LOCK_DIR /var/lock/apache2
 
 
-RUN  apk upgrade --update && apk add apache2 && \
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
+
+RUN apk update && apk upgrade && \
+    apk add apache2 apache2-dev php7.1-apache2 && \
     ln -sf /dev/stdout /var/log/apache2/access.log && \
     ln -sf /dev/stderr /var/log/apache2/error.log && \
     mkdir /run/apache2/
