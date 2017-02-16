@@ -12,6 +12,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
 
 RUN apk update && apk upgrade && \
     apk add apache2 apache2-dev php7.1-apache2 && \
+    sed -i "s/php7.1_module/php7_module/g" /etc/apache2/conf.d/php7.1-module.conf && \
     ln -sf /dev/stdout /var/log/apache2/access.log && \
     ln -sf /dev/stderr /var/log/apache2/error.log && \
     mkdir /run/apache2/
