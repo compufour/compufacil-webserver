@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/usr/bin/certbot", line 11, in <module>
+    load_entry_point('certbot==0.11.1', 'console_scripts', 'certbot')()
+  File "/usr/lib/python3.6/site-packages/certbot/main.py", line 858, in main
+    plugins = plugins_disco.PluginsRegistry.find_all()
+  File "/usr/lib/python3.6/site-packages/certbot/plugins/disco.py", line 183, in find_all
+    plugin_ep = PluginEntryPoint(entry_point)
+  File "/usr/lib/python3.6/site-packages/certbot/plugins/disco.py", line 34, in __init__
+    self.plugin_cls = entry_point.load()
+  File "/usr/lib/python3.6/site-packages/pkg_resources/__init__.py", line 2302, in load
+    return self.resolve()
+  File "/usr/lib/python3.6/site-packages/pkg_resources/__init__.py", line 2308, in resolve
+    module = __import__(self.module_name, fromlist=['__name__'], level=0)
+  File "/usr/lib/python3.6/site-packages/certbot_s3front/authenticator.py", line 21, in <module>
+    class Authenticator(common.Plugin):
+  File "/usr/lib/python3.6/site-packages/certbot_s3front/authenticator.py", line 22, in Authenticator
+    zope.interface.implements(interfaces.IAuthenticator)
+  File "/usr/lib/python3.6/site-packages/zope/interface/declarations.py", line 485, in implements
+    raise TypeError(_ADVICE_ERROR % 'implementer')
+TypeError: Class advice impossible in Python3.  Use the @implementer class decorator instead.
